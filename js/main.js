@@ -25,11 +25,11 @@ const i18n = {
     'contact.title': 'Kontakt'
   },
   ko: {
-    'nav.biography': '약력',
+    'nav.biography': '프로필',
     'nav.media': '미디어',
     'nav.gallery': '갤러리',
     'nav.contact': '연락처',
-    'bio.title': '약력',
+    'bio.title': '프로필',
     'media.title': '미디어',
     'media.videos': '영상',
     'media.press': '보도',
@@ -62,10 +62,12 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
 });
 
-// Restore saved language
+// Restore saved language (default: German)
 const savedLang = localStorage.getItem('rirakim-lang');
 if (savedLang && ['en', 'de', 'ko'].includes(savedLang)) {
   setLanguage(savedLang);
+} else {
+  setLanguage('de');
 }
 
 
