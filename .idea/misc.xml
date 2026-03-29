@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Python 3.12 (RIra_portfolio)" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="4e72e518-6150-4663-92b3-b7a93c83d55b" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (RIra_portfolio)" project-jdk-type="Python SDK" />
+</project>

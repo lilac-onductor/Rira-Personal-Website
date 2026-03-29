@@ -1,0 +1,4 @@
+
+ I want to create a plan to build a personal website. In the directory, there is a example_site.txt file which has a link to 3 personal websites I like. On the
+website, use the links provided in the media.pdf where the media talks about Rira's performances. I also have youtube links to Rira's performances that I would like
+ you to embed on the website. The website will be hosted on github pages. Also, under Rira Website Material, there are photos you can use for Rira's performances. There are also extensive information on her style and references in the website rira doku folder. have a look at that.
