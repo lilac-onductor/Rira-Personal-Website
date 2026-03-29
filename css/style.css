@@ -416,6 +416,27 @@ a:hover {
   opacity: 0.5;
 }
 
+.press-quote {
+  margin: 8px 0 4px 18px;
+  padding: 10px 16px;
+  border-left: 2px solid var(--color-accent);
+  background: rgba(139, 115, 85, 0.04);
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-muted);
+  line-height: 1.6;
+  border-radius: 0 3px 3px 0;
+}
+
+.press-quote cite {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  font-style: normal;
+  color: var(--color-accent);
+  opacity: 0.8;
+}
+
 /* ===== Gallery ===== */
 .gallery__grid {
   display: grid;
