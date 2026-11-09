@@ -16,6 +16,7 @@
   --color-divider: #E8E0D6;
   --color-muted: #6B6B6B;
   --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-display: 'Cinzel', 'Cormorant Garamond', 'Georgia', serif;
   --font-body: 'Inter', 'Helvetica Neue', sans-serif;
   --font-korean: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
   --nav-height: 70px;
@@ -118,8 +119,8 @@ a:hover {
 }
 
 .nav__logo {
-  font-family: var(--font-heading);
-  font-size: 1.875rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--color-text);
   letter-spacing: 0.02em;
@@ -274,10 +275,10 @@ a:hover {
 }
 
 .hero__title {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
