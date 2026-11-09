@@ -1,3 +1,28 @@
+/* ===== Korean Webfont (MaruBuri, Naver) ===== */
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Light.woff2) format('woff2'),
+       url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Light.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format('woff2'),
+       url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2) format('woff2'),
+       url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff) format('woff');
+}
+
 /* ===== Custom Properties ===== */
 :root {
   --color-bg: #FAFAFA;
@@ -6,9 +31,9 @@
   --color-accent-light: #A8916F;
   --color-divider: #E8E0D6;
   --color-muted: #6B6B6B;
-  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
-  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
-  --font-korean: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  --font-heading: 'Cormorant Garamond', 'MaruBuri', 'Georgia', serif;
+  --font-body: 'Inter', 'MaruBuri', 'Helvetica Neue', sans-serif;
+  --font-korean: 'MaruBuri', 'AppleMyungjo', serif;
   --nav-height: 70px;
 }
 
@@ -53,6 +78,7 @@ a:hover {
 [lang="ko"] {
   font-family: var(--font-korean);
   line-height: 1.85;
+  word-break: keep-all;
 }
 
 /* ===== Language Toggle ===== */
