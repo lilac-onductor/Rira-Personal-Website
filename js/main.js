@@ -10,7 +10,16 @@ const i18n = {
     'media.videos': 'Videos',
     'media.press': 'Press',
     'gallery.title': 'Gallery',
-    'contact.title': 'Contact'
+    'contact.title': 'Contact',
+    'bio.more': 'Read more',
+    'bio.less': 'Show less',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.send': 'Send',
+    'contact.sending': 'Sending…',
+    'contact.success': 'Thank you — your message has been sent.',
+    'contact.error': 'Something went wrong. Please write directly to the email address below.'
   },
   de: {
     'nav.biography': 'Biografie',
@@ -22,7 +31,16 @@ const i18n = {
     'media.videos': 'Videos',
     'media.press': 'Presse',
     'gallery.title': 'Galerie',
-    'contact.title': 'Kontakt'
+    'contact.title': 'Kontakt',
+    'bio.more': 'Mehr lesen',
+    'bio.less': 'Weniger anzeigen',
+    'contact.name': 'Name',
+    'contact.email': 'E-Mail',
+    'contact.message': 'Nachricht',
+    'contact.send': 'Senden',
+    'contact.sending': 'Wird gesendet…',
+    'contact.success': 'Vielen Dank — Ihre Nachricht wurde gesendet.',
+    'contact.error': 'Etwas ist schiefgelaufen. Bitte schreiben Sie direkt an die untenstehende E-Mail-Adresse.'
   },
   ko: {
     'nav.biography': '프로필',
@@ -34,7 +52,16 @@ const i18n = {
     'media.videos': '영상',
     'media.press': '보도',
     'gallery.title': '갤러리',
-    'contact.title': '연락처'
+    'contact.title': '연락처',
+    'bio.more': '더 보기',
+    'bio.less': '접기',
+    'contact.name': '이름',
+    'contact.email': '이메일',
+    'contact.message': '메시지',
+    'contact.send': '보내기',
+    'contact.sending': '보내는 중…',
+    'contact.success': '감사합니다. 메시지가 전송되었습니다.',
+    'contact.error': '전송에 실패했습니다. 아래 이메일 주소로 직접 연락해 주세요.'
   }
 };
 
@@ -69,6 +96,27 @@ if (savedLang && ['en', 'de', 'ko'].includes(savedLang)) {
 } else {
   setLanguage('de');
 }
+
+
+function t(key) {
+  const lang = document.documentElement.getAttribute('data-lang') || 'de';
+  return i18n[lang][key];
+}
+
+
+/* ===== Biography Read More ===== */
+const bioText = document.querySelector('.biography__text');
+const bioToggle = document.querySelector('.biography__toggle');
+
+bioToggle.addEventListener('click', () => {
+  const expanded = bioText.classList.toggle('expanded');
+  bioToggle.setAttribute('aria-expanded', expanded);
+  bioToggle.setAttribute('data-i18n', expanded ? 'bio.less' : 'bio.more');
+  bioToggle.textContent = t(bioToggle.getAttribute('data-i18n'));
+  if (!expanded) {
+    document.getElementById('biography').scrollIntoView();
+  }
+});
 
 
 /* ===== Mobile Navigation ===== */
@@ -170,4 +218,56 @@ lightbox.addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox();
+});
+
+
+
+/* ===== Featured Interview Player ===== */
+const featuredVideo = document.querySelector('.featured-video[data-video-src]');
+
+if (featuredVideo) {
+  featuredVideo.addEventListener('click', e => {
+    e.preventDefault();
+    const video = document.createElement('video');
+    video.className = 'featured-video featured-video--playing';
+    video.src = featuredVideo.dataset.videoSrc;
+    video.poster = featuredVideo.querySelector('img').src;
+    video.controls = true;
+    video.playsInline = true;
+    // Fall back to the WDR page if the stream is no longer available
+    video.addEventListener('error', () => window.open(featuredVideo.href, '_blank', 'noopener'));
+    featuredVideo.replaceWith(video);
+    video.play().catch(() => {});
+  });
+}
+
+
+/* ===== Contact Form ===== */
+const contactForm = document.querySelector('.contact__form');
+const contactStatus = contactForm.querySelector('.contact__status');
+const contactSubmit = contactForm.querySelector('.contact__submit');
+
+contactForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  contactSubmit.disabled = true;
+  contactStatus.textContent = t('contact.sending');
+  contactStatus.className = 'contact__status';
+
+  try {
+    const res = await fetch(contactForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(contactForm)
+    });
+    const data = await res.json();
+    if (!res.ok || String(data.success) !== 'true') throw new Error(data.message);
+    contactForm.reset();
+    contactStatus.textContent = t('contact.success');
+    contactStatus.classList.add('contact__status--success');
+  } catch {
+    contactStatus.textContent = t('contact.error');
+    contactStatus.classList.add('contact__status--error');
+  } finally {
+    contactSubmit.disabled = false;
+  }
 });
