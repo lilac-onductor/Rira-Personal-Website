@@ -1,6 +1,7 @@
 /* ===== Language Switcher ===== */
 const i18n = {
   en: {
+    'hero.subtitle': 'Conductor',
     'nav.biography': 'Biography',
     'nav.media': 'Media',
     'nav.gallery': 'Gallery',
@@ -23,6 +24,7 @@ const i18n = {
     'contact.autoresponse': 'Thank you for your message. I have received it and will get back to you as soon as possible.\n\nRira Kim\nrirakim.com'
   },
   de: {
+    'hero.subtitle': 'Dirigentin',
     'nav.biography': 'Biografie',
     'nav.media': 'Medien',
     'nav.gallery': 'Galerie',
@@ -45,6 +47,7 @@ const i18n = {
     'contact.autoresponse': 'Vielen Dank für Ihre Nachricht. Ich habe sie erhalten und melde mich so bald wie möglich bei Ihnen.\n\nRira Kim\nrirakim.com'
   },
   ko: {
+    'hero.subtitle': '지휘자',
     'nav.biography': '프로필',
     'nav.media': '미디어',
     'nav.gallery': '갤러리',
@@ -79,6 +82,8 @@ function setLanguage(lang) {
       el.textContent = i18n[lang][key];
     }
   });
+
+  document.title = `Rira Kim — ${i18n[lang]['hero.subtitle']}`;
 
   // Update active button
   document.querySelectorAll('.lang-btn').forEach(btn => {
