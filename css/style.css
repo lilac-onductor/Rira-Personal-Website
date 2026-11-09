@@ -1,3 +1,12 @@
+/* ===== Logo Korean Webfont (MaruBuri, Naver) ===== */
+@font-face {
+  font-family: 'MaruBuri';
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format('woff2'),
+       url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format('woff');
+}
+
 /* ===== Custom Properties ===== */
 :root {
   --color-bg: #FAFAFA;
@@ -109,12 +118,24 @@ a:hover {
 }
 
 .nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-heading);
   font-size: 1.875rem;
   font-weight: 600;
+  line-height: 1;
   color: var(--color-text);
   letter-spacing: 0.02em;
   transition: color 0.3s;
+}
+
+.nav__logo-ko {
+  font-family: 'MaruBuri', var(--font-korean);
+  font-size: 0.6em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
 }
 
 .nav__menu {
