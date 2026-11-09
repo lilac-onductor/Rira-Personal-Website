@@ -1,20 +1,3 @@
-/* ===== Logo Korean Webfont (MaruBuri, Naver) ===== */
-@font-face {
-  font-family: 'MaruBuri';
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format('woff2'),
-       url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'MaruBuri';
-  font-weight: 700;
-  font-display: swap;
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2) format('woff2'),
-       url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff) format('woff');
-}
-
 /* ===== Custom Properties ===== */
 :root {
   --color-bg: #FAFAFA;
@@ -126,24 +109,12 @@ a:hover {
 }
 
 .nav__logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1;
+  font-size: 1.875rem;
+  font-weight: 600;
   color: var(--color-text);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   transition: color 0.3s;
-}
-
-.nav__logo-ko {
-  font-family: 'MaruBuri', var(--font-korean);
-  font-size: 0.7em;
-  font-weight: 700;
-  letter-spacing: 0.08em;
 }
 
 .nav__menu {
@@ -827,8 +798,7 @@ a:hover {
   }
 
   .nav__logo {
-    font-size: 1.25rem;
-    gap: 10px;
+    font-size: 1.5rem;
   }
 
   .nav__hamburger {
