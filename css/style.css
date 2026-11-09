@@ -9,12 +9,12 @@
 
 /* ===== Custom Properties ===== */
 :root {
-  --color-bg: #FAFAFA;
-  --color-text: #1A1A1A;
-  --color-accent: #8B7355;
-  --color-accent-light: #A8916F;
-  --color-divider: #E8E0D6;
-  --color-muted: #6B6B6B;
+  --color-bg: #211915;
+  --color-text: #EFE7DC;
+  --color-accent: #D2B080;
+  --color-accent-light: #E2C69C;
+  --color-divider: rgba(255, 240, 220, 0.14);
+  --color-muted: #B9AE9F;
   --font-heading: 'Cormorant Garamond', 'Georgia', serif;
   --font-body: 'Inter', 'Helvetica Neue', sans-serif;
   --font-korean: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
@@ -89,7 +89,7 @@ a:hover {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(33, 25, 21, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
@@ -571,7 +571,7 @@ a:hover {
   margin: 8px 0 4px 18px;
   padding: 10px 16px;
   border-left: 2px solid var(--color-accent);
-  background: rgba(139, 115, 85, 0.04);
+  background: rgba(255, 240, 220, 0.05);
   font-size: 0.875rem;
   font-style: italic;
   color: var(--color-muted);
@@ -649,7 +649,7 @@ a:hover {
   font-size: 0.9375rem;
   font-weight: 300;
   color: var(--color-text);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--color-divider);
   border-radius: 2px;
   padding: 10px 12px;
@@ -670,7 +670,7 @@ a:hover {
 .contact__submit {
   align-self: center;
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-bg);
   border: none;
   border-radius: 2px;
   padding: 10px 36px;
@@ -703,7 +703,7 @@ a:hover {
 }
 
 .contact__status--error {
-  color: #A33;
+  color: #E39A8A;
 }
 
 .contact__email a {
@@ -838,7 +838,7 @@ a:hover {
     align-items: center;
     gap: 28px;
     transition: right 0.3s ease;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4);
   }
 
   .nav__menu.open {
