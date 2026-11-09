@@ -19,7 +19,8 @@ const i18n = {
     'contact.send': 'Send',
     'contact.sending': 'Sending…',
     'contact.success': 'Thank you — your message has been sent.',
-    'contact.error': 'Something went wrong. Please write directly to the email address below.'
+    'contact.error': 'Something went wrong. Please write directly to the email address below.',
+    'contact.autoresponse': 'Thank you for your message. I have received it and will get back to you as soon as possible.\n\nRira Kim\nrirakim.com'
   },
   de: {
     'nav.biography': 'Biografie',
@@ -40,7 +41,8 @@ const i18n = {
     'contact.send': 'Senden',
     'contact.sending': 'Wird gesendet…',
     'contact.success': 'Vielen Dank — Ihre Nachricht wurde gesendet.',
-    'contact.error': 'Etwas ist schiefgelaufen. Bitte schreiben Sie direkt an die untenstehende E-Mail-Adresse.'
+    'contact.error': 'Etwas ist schiefgelaufen. Bitte schreiben Sie direkt an die untenstehende E-Mail-Adresse.',
+    'contact.autoresponse': 'Vielen Dank für Ihre Nachricht. Ich habe sie erhalten und melde mich so bald wie möglich bei Ihnen.\n\nRira Kim\nrirakim.com'
   },
   ko: {
     'nav.biography': '프로필',
@@ -61,7 +63,8 @@ const i18n = {
     'contact.send': '보내기',
     'contact.sending': '보내는 중…',
     'contact.success': '감사합니다. 메시지가 전송되었습니다.',
-    'contact.error': '전송에 실패했습니다. 아래 이메일 주소로 직접 연락해 주세요.'
+    'contact.error': '전송에 실패했습니다. 아래 이메일 주소로 직접 연락해 주세요.',
+    'contact.autoresponse': '메시지 감사합니다. 잘 받았으며 가능한 한 빨리 답장드리겠습니다.\n\n김리라\nrirakim.com'
   }
 };
 
@@ -250,6 +253,7 @@ const contactSubmit = contactForm.querySelector('.contact__submit');
 contactForm.addEventListener('submit', async e => {
   e.preventDefault();
   contactSubmit.disabled = true;
+  contactForm.elements._autoresponse.value = t('contact.autoresponse');
   contactStatus.textContent = t('contact.sending');
   contactStatus.className = 'contact__status';
 
